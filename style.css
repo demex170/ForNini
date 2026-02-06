@@ -1,0 +1,88 @@
+body {
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 420px;
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+  z-index: 2;
+}
+
+h1 {
+  color: #c2185b;
+}
+
+.text {
+  font-size: 17px;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+button {
+  background: #ff5fa2;
+  color: white;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e91e63;
+}
+
+.hidden {
+  display: none;
+  margin-top: 25px;
+}
+
+img {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 15px;
+}
+
+video {
+  width: 100%;
+  border-radius: 18px;
+}
+
+/* გულების ანიმაცია */
+#hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 22px;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}

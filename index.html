@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ნინისთვის 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- მუსიკა -->
+  <audio id="music" src="music.mp3" loop></audio>
+
+  <!-- გულების კონტეინერი -->
+  <div id="hearts"></div>
+
+  <div class="card">
+    <h1>ნინისთვის ✨💗</h1>
+
+    <p class="text">
+      უბრალოდ მინდოდა გამეღიმებინე.  
+      მიყვარხარ და მიხარია, რომ ხარ 💗
+    </p>
+
+    <button id="mainBtn" onclick="startLove()">ნახე 💫</button>
+
+    <div id="content" class="hidden">
+      <img src="photo.jpg" alt="ნინი 💗">
+
+      <video controls>
+        <source src="video.mp4" type="video/mp4">
+        შენი ბრაუზერი ვიდეოს ვერ ხსნის
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function startLove() {
+      // კონტენტის ჩვენება
+      document.getElementById("content").style.display = "block";
+
+      // მუსიკის ჩართვა
+      document.getElementById("music").play();
+
+      // ღილაკის ტექსტის შეცვლა
+      document.getElementById("mainBtn").innerText = "💗";
+
+      // გულების ანიმაცია
+      createHearts();
+    }
+
+    function createHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+        document.getElementById("hearts").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
