@@ -21,11 +21,22 @@
       მიყვარხარ და მიხარია, რომ ხარ 💗
     </p>
 
+    <!-- მთავარი ღილაკი -->
     <button id="mainBtn" onclick="startLove()">ნახე 💫</button>
 
-    <div id="content" class="hidden">
-      <img src="photo.jpg" alt="ნინი 💗">
+    <!-- ფოტო / ვიდეო ღილაკები -->
+    <div id="mediaButtons" class="hidden buttons">
+      <button onclick="showPhoto()">ფოტო 📷</button>
+      <button onclick="showVideo()">ვიდეო 🎥</button>
+    </div>
 
+    <!-- ფოტო -->
+    <div id="photoBox" class="hidden">
+      <img src="photo.jpg" alt="ნინი 💗">
+    </div>
+
+    <!-- ვიდეო -->
+    <div id="videoBox" class="hidden">
       <video controls>
         <source src="video.mp4" type="video/mp4">
         შენი ბრაუზერი ვიდეოს ვერ ხსნის
@@ -35,17 +46,20 @@
 
   <script>
     function startLove() {
-      // კონტენტის ჩვენება
-      document.getElementById("content").style.display = "block";
-
-      // მუსიკის ჩართვა
       document.getElementById("music").play();
-
-      // ღილაკის ტექსტის შეცვლა
       document.getElementById("mainBtn").innerText = "💗";
-
-      // გულების ანიმაცია
+      document.getElementById("mediaButtons").style.display = "flex";
       createHearts();
+    }
+
+    function showPhoto() {
+      document.getElementById("photoBox").style.display = "block";
+      document.getElementById("videoBox").style.display = "none";
+    }
+
+    function showVideo() {
+      document.getElementById("videoBox").style.display = "block";
+      document.getElementById("photoBox").style.display = "none";
     }
 
     function createHearts() {
@@ -55,12 +69,8 @@
         heart.innerHTML = "💗";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
         document.getElementById("hearts").appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 6000);
+        setTimeout(() => heart.remove(), 6000);
       }, 300);
     }
   </script>
